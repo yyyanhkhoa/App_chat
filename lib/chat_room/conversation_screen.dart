@@ -2,6 +2,7 @@ import 'package:app_chat/helper/constant.dart';
 import 'package:app_chat/services/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:app_chat/chat_room/videoCall.dart';
 
 class ConversationScreen extends StatefulWidget {
   late final String chatRoomId;
@@ -12,7 +13,6 @@ class ConversationScreen extends StatefulWidget {
 }
 
 class _ConversationScreenState extends State<ConversationScreen> {
-
   DatabaseMethods databaseMethods = new DatabaseMethods();
   TextEditingController messageController = new TextEditingController();
 
@@ -59,6 +59,20 @@ class _ConversationScreenState extends State<ConversationScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset("images/uit.png",height: 50,),
+        actions: [
+// button video call
+          GestureDetector(
+            onTap: () {
+              // Navigator.pushReplacement(context, MaterialPageRoute(
+              //     builder: (context) => IndexPage()
+              // ));
+            },
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Image.asset("images/videoCall.png",height: 40,)
+            ),
+          )
+        ],
       ),
       body: Container(
         child: Stack(
